@@ -1,23 +1,52 @@
 //集合  https://dart.dev/guides/libraries/library-tour#collections
 
-void main() {}
+void main() {
+  print('--------');
+  print('creatlists');
+  creatlists();
+  print('--------');
+  print('findindex');
+  find_index();
+  print('-------');
+  sotrlist();
+  print('-------');
+  listtypes();
+  print('-------');
+  creatsets();
+  print('-------');
+  find_a_charinsets();
+  print('-------');
+  findsanmeset();
+  print('-------');
+  creatMaps();
+  print('-------');
+  changecontains_maps();
+  print('-------');
+  retrieveallthevaluesorkeys();
+  print('-------');
+  findcontains_key();
+  print('-------');
+  publicmethods();
+}
+
+//lists
 void creatlists() {
   var grains = <String>[];
-  assert(grains.isEmpty);
+  print(grains.isEmpty);
 
   var fruits = ['apples', 'oranges'];
   fruits.add('kiwis');
 
   fruits.addAll(['grapes', 'bananas']);
   fruits.addAll(['grapes', 'bananas']);
-  assert(fruits.length == 5);
+  var length = fruits.length;
+  print('length is $length and fruits is $fruits');
 
   var appleIndex = fruits.indexOf('apples');
   fruits.removeAt(appleIndex);
-  assert(fruits.length == 4);
-
+  print('fruits is $fruits');
   fruits.clear();
-  assert(fruits.isEmpty);
+  print(fruits.isEmpty);
 
   var vegetables = List.filled(99, 'broccoli');
   assert(vegetables.every((v) => v == 'broccoli'));
@@ -25,32 +54,38 @@ void creatlists() {
 
 void find_index() {
   var fruits = ['apples', 'oranges'];
-  assert(fruits[0] == 'apples');
-  assert(fruits.indexOf('apples') == 0);
+  print(fruits.indexOf('oranges'));
+  print(fruits.indexOf('apples'));
 }
 
 void sotrlist() {
   var fruits = ['bananas', 'apples', 'oranges'];
+  print(fruits);
   fruits.sort((a, b) => a.compareTo(b));
-  assert(fruits[0] == 'apples');
+  print(fruits);
 }
 
-void listcontains() {
+void listtypes() {
   var fruits = <String>[];
 
   fruits.add('apples');
   var fruit = fruits[0];
-  assert(fruit is String);
+  print(fruit is String);
 }
 
+//sets
 void creatsets() {
   var ingredients = <String>{};
+
   ingredients.addAll(['gold', 'titanium', 'xenon']);
   assert(ingredients.length == 3);
+
   ingredients.add('gold');
   assert(ingredients.length == 3);
+
   ingredients.remove('gold');
   assert(ingredients.length == 2);
+
   var atomicNumbers = Set.from([79, 22, 54]);
 }
 
@@ -114,5 +149,28 @@ void findcontains_key() {
 
   assert(hawaiianBeaches.containsKey('Oahu'));
   assert(!hawaiianBeaches.containsKey('Florida'));
+}
 
+void publicmethods() {
+  var teas = ['green', 'black', 'chamomile', 'earl grey'];
+  teas.forEach((tea) => print('i drink $tea'));
+
+  var hawaiianBeaches = {
+    'Oahu': ['Waikiki', 'Kailua', 'Waimanalo'],
+    'Big Island': ['Wailea Bay', 'Pololu Beach'],
+    'Kauai': ['Hanalei', 'Poipu']
+  };
+  hawaiianBeaches.forEach((k, v) {
+    print('I want to visit $k and swim at $v');
+  });
+
+  var teas1 = ['green', 'black', 'chamomile', 'earl grey'];
+
+  var loudTeas = teas1.map((tea) => tea.toUpperCase());
+  loudTeas.forEach(print);
+
+  bool isDecaffeinated(String teaName) => teaName == 'chamomile';
+  var decaffeinatedTeas = teas.where((tea) => isDecaffeinated(tea));
+  assert(teas.any(isDecaffeinated));
+  assert(!teas.every(isDecaffeinated));
 }

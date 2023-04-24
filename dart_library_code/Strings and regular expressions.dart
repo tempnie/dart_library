@@ -1,7 +1,7 @@
 // 字符串与正则表达式 https://dart.dev/guides/libraries/library-tour#strings-and-regular-expressions
 
 void main() {}
-void Searchinginsideastring() {
+void Searchinginside_a_string() {
   assert('Never odd or even'.contains('odd'));
   assert('Never odd or even'.startsWith('Never'));
   assert('Never odd or even'.endsWith('even'));

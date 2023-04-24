@@ -22,7 +22,7 @@ void main() {
   // Specify the number of digits after the decimal.
   assert(123.456.toStringAsFixed(2) == '123.46');
 
-  // Specify the number of significant figures.
+  
   assert(123.456.toStringAsPrecision(2) == '1.2e+2');
   assert(double.parse('1.2e+2') == 120.0);
 
