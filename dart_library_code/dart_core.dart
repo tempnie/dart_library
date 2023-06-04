@@ -2,15 +2,15 @@
 import 'dart:core';
 
 void main() {
-//数字
+//数字,使用 int 和 double 的 parse() 方法将字符串转换为整型或双浮点型对象
   assert(int.parse('42') == 42);
   assert(int.parse('0x42') == 66);
   assert(double.parse('0.50') == 0.5);
-
+//使用 num 的 parse() 方法，该方法可能会创建一个整型，否则为浮点型对象
   assert(num.parse('42') is int);
   assert(num.parse('0x42') is int);
   assert(num.parse('0.50') is double);
-
+//添加 radix 参数，指定整数的进制基数
   assert(int.parse('42', radix: 16) == 66);
 
   // Convert an int to a string.
