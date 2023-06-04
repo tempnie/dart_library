@@ -1,10 +1,10 @@
-// uris类 https://dart.cn/guides/libraries/library-tour#uris
+// uri类 https://dart.cn/guides/libraries/library-tour#uris
 
 void main() {
   encode_decode();
   creaturiObject();
 }
-
+//编码和解码完整合法的URI
 void encode_decode() {
   var uri = 'https://example.org/api?foo=some message';
   var encoded = Uri.encodeFull(uri);
@@ -18,7 +18,7 @@ void encode_decode() {
   decoded = Uri.decodeComponent(encoded);
   print(decoded);
 }
-
+//解析 URI
 void creaturiObject() {
   var uri = Uri.parse('https://example.org:8080/foo/bar#frag');
 
@@ -27,7 +27,7 @@ void creaturiObject() {
   assert(uri.path == '/foo/bar');
   assert(uri.fragment == 'frag');
   assert(uri.origin == 'https://example.org:8080');
-
+// 构建 URI
   var uri1 = Uri(
       scheme: 'https',
       host: 'example.org',
