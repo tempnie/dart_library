@@ -7,5 +7,19 @@ class FooException implements Exception {
   @override
   String toString() => msg ?? 'FooException';
 }
+void foo() {
+  throw FooException('Something went wrong!');
+}
 
+void main() {
+  try {
+    foo();
+  } catch (e) {
+    if (e is FooException) {
+      print('Caught FooException: $e');
+    } else {
+      print('Caught exception: $e');
+    }
+  }
+}
 
